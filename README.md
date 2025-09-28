@@ -69,8 +69,3 @@ Tuning dengan **GridSearchCV (5-fold CV)**.
 - Simpan model & scaler (`joblib`) → deploy via **Flask/FastAPI**.  
 - Monitoring: pantau data drift & imbalance baru.  
 - Explainability: tambahkan **SHAP/Permutation Importance**.  
-
----
-
-## 📂 Struktur Project  
-```\nloan-approval-prediction/\n│── data/\n│   └── loan_data.csv\n│── notebook/\n│   └── loan_prediction.ipynb\n│── models/\n│   └── loan_best_model.joblib\n│── assets/\n│   ├── loan_status_pie.png\n│   ├── heatmap_corr.png\n│   ├── model_comparison.png\n│   ├── roc_curve.png\n│   └── conf_matrix.png\n│── README.md\n```\n\n---\n\n## 🔗 Notebook Colab\n👉 [Open in Google Colab](https://colab.research.google.com/) *(upload notebook di sini)*\n\n```\n\n---\n\n📌 Saran: setelah running di Colab, kamu **screenshot grafik (pie, heatmap, barplot, ROC, confusion matrix)** lalu taruh di folder `assets/` agar README jadi lebih hidup.  \n\nMau aku bikinkan juga template **.ipynb notebook siap upload ke GitHub/Colab** biar langsung sinkron sama README?
