@@ -21,7 +21,7 @@
 
 Contoh distribusi target:  
 
-![Loan Status Distribution](assets/loan_status_pie.png)  
+![Loan Status Distribution](loan_status_pie.png)  
 
 ---
 
