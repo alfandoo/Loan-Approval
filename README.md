@@ -61,12 +61,12 @@ Tuning dengan **GridSearchCV (5-fold CV)**.
 
 - Confusion Matrix:  
 
-![Confusion Matrix](cn.png)  
+![Confusion Matrix](cm.png)  
 
 ---
 - Classification Report:  
 
-![Classification Report](cr.png)  
+![Classification Report](cr.PNG)  
 
 ---
 
