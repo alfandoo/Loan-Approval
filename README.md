@@ -33,7 +33,7 @@ Contoh distribusi target:
 
 Heatmap korelasi:  
 
-![Heatmap](assets/heatmap_corr.png)  
+![Heatmap](heatmap.png)  
 
 ---
 
@@ -53,15 +53,15 @@ Tuning dengan **GridSearchCV (5-fold CV)**.
 - Evaluasi pakai **Accuracy, F1 Score, ROC-AUC, CV Score**.  
 - Visualisasi hasil:  
 
-![Model Comparison](assets/model_comparison.png)  
+![Model Comparison](model_comparison.png)  
 
 - ROC Curve model terbaik:  
 
-![ROC Curve](assets/roc_curve.png)  
+![ROC Curve](roc_curve.png)  
 
 - Confusion Matrix:  
 
-![Confusion Matrix](assets/conf_matrix.png)  
+![Confusion Matrix](conf_matrix.png)  
 
 ---
 
