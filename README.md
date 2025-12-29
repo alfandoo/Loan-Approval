@@ -1,179 +1,165 @@
-<div align="center">
-  <img width="180px" src="https://img.icons8.com/fluency/240/artificial-intelligence.png"/>
-</div>
-
-<h1 align="center">Loan Approval Prediction</h1>
-<h3 align="center">CRISP-DM Machine Learning Portfolio</h3>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python"/>
-  <img src="https://img.shields.io/badge/Scikit--learn-ML-orange?logo=scikitlearn"/>
-  <img src="https://img.shields.io/badge/Imbalanced--Learn-SMOTE-green"/>
-  <img src="https://img.shields.io/badge/Status-Build%20Passing-brightgreen"/>
-</p>
+# 📌 Loan Approval Prediction using Machine Learning
 
 ---
 
-<table align="center">
-  <tr>
-    <td width="1200">
-      <h2 align="center">📌 Business Understanding</h2>
-      <p>
-        Proyek ini berfokus pada permasalahan <strong>persetujuan pinjaman (loan approval)</strong> yang umum dihadapi oleh institusi keuangan.
-        Keputusan kredit yang tidak akurat dapat menyebabkan <strong>risiko gagal bayar</strong> atau <strong>kehilangan calon nasabah potensial</strong>.
-      </p>
-      <p>
-        Tujuan utama dari proyek ini adalah membangun <strong>model klasifikasi yang akurat, stabil, dan seimbang</strong> untuk membantu
-        pengambilan keputusan kredit berbasis data.
-      </p>
+## 1. Executive Summary
+Proyek ini bertujuan membangun sistem prediksi persetujuan pinjaman
+(*loan approval*) menggunakan machine learning berbasis data historis peminjam.
+Masalah utama yang diangkat adalah proses evaluasi kredit yang masih manual,
+memakan waktu, dan berisiko tidak konsisten.
 
-<h4>🎯 Business Objectives</h4>
-<ul>
-  <li>Memprediksi status persetujuan pinjaman (Approved / Unapproved)</li>
-  <li>Menangani data imbalance secara profesional</li>
-  <li>Menyediakan model yang siap untuk deployment</li>
-</ul>
-
-<h4>📈 Success Metrics</h4>
-<ul>
-  <li>F1-Score (Weighted)</li>
-  <li>ROC-AUC</li>
-  <li>Stabilitas cross-validation</li>
-  <li>Interpretabilitas fitur</li>
-</ul>
-    </td>
-  </tr>
-</table>
+Dengan pendekatan data-driven, proyek ini menghasilkan model klasifikasi
+yang mampu membedakan pengajuan pinjaman **Approved** dan **Unapproved**
+secara objektif serta berpotensi digunakan sebagai *decision support system*
+pada proses underwriting kredit.
 
 ---
 
-<table align="center">
-  <tr>
-    <td width="1200">
-      <h2 align="center">📊 Data Understanding</h2>
+## 2. Business Problem
+Lembaga keuangan menghadapi tantangan dalam menilai kelayakan kredit pemohon
+secara cepat dan akurat. Ketergantungan pada evaluasi manual dapat meningkatkan
+risiko kredit macet dan memperlambat proses bisnis.
 
-<p><strong>Dataset:</strong> <code>loan_data.csv</code></p>
-<p><strong>Target Variable:</strong> <code>loan_status</code> (0 = Unapproved, 1 = Approved)</p>
-
-<h4>Key Features</h4>
-<ul>
-  <li><code>person_age</code></li>
-  <li><code>person_income</code></li>
-  <li><code>credit_score</code></li>
-  <li><code>loan_amnt</code></li>
-  <li><code>loan_int_rate</code></li>
-  <li><code>loan_percent_income</code></li>
-</ul>
-
-<div align="center">
-  <img width="420" src="loan_status_pie.png" alt="Loan Status Distribution"/>
-</div>
-    </td>
-  </tr>
-</table>
+Jika masalah ini tidak ditangani, dampak bisnis yang muncul meliputi:
+- Tingginya risiko *non-performing loan*
+- Waktu persetujuan pinjaman yang lambat
+- Penurunan kepercayaan dan kepuasan nasabah
 
 ---
 
-<table align="center">
-  <tr>
-    <td width="1200">
-      <h2 align="center">🛠️ Data Preparation</h2>
+## 3. Objectives
+Tujuan utama proyek:
+- Membangun model klasifikasi untuk memprediksi status persetujuan pinjaman
+- Mengidentifikasi fitur paling berpengaruh terhadap keputusan kredit
+- Membandingkan performa beberapa algoritma machine learning
 
-<ul>
-  <li><strong>Outlier Treatment:</strong> IQR-based trimming</li>
-  <li><strong>Imbalance Handling:</strong> SMOTE</li>
-  <li><strong>Scaling:</strong> RobustScaler</li>
-  <li><strong>Feature Engineering:</strong>
-    <ul>
-      <li>Credit Utilization</li>
-      <li>Income-to-Loan Ratio</li>
-      <li>Credit Risk Category</li>
-    </ul>
-  </li>
-</ul>
-
-<div align="center">
-  <img width="500" src="heatmap.png" alt="Correlation Heatmap"/>
-</div>
-    </td>
-  </tr>
-</table>
+Target model:
+- Model dengan performa stabil berdasarkan **Accuracy, F1 Score, dan ROC-AUC**
 
 ---
 
-<table align="center">
-  <tr>
-    <td width="1200">
-      <h2 align="center">🤖 Modeling</h2>
+## 4. Dataset
+- **Sumber data**: Dataset pinjaman konsumen (CSV)
+- **Jumlah data awal**: {{jumlah_data_awal}} baris
+- **Jumlah data setelah outlier trimming (IQR)**: {{jumlah_data_akhir}} baris
+- **Target variable**: `loan_status`
+  - 1 = Approved
+  - 0 = Unapproved
 
-<p>Beberapa algoritma Machine Learning diuji dan dibandingkan:</p>
-
-<ul>
-  <li>Logistic Regression</li>
-  <li>Random Forest</li>
-  <li>Gradient Boosting</li>
-  <li>Support Vector Machine (SVM)</li>
-  <li>K-Nearest Neighbors (KNN)</li>
-</ul>
-
-<p>
-Seluruh model dituning menggunakan <strong>GridSearchCV</strong> dengan
-<strong>5-Fold Cross Validation</strong> untuk memastikan generalisasi model.
-</p>
-    </td>
-  </tr>
-</table>
+**Fitur utama**:
+- Demografi: `person_age`, `person_gender`, `person_education`
+- Finansial: `person_income`, `loan_amnt`, `loan_int_rate`, `credit_score`
+- Riwayat kredit: `cb_person_cred_hist_length`,
+  `previous_loan_defaults_on_file`
+- Properti & tujuan pinjaman
 
 ---
 
-<table align="center">
-  <tr>
-    <td width="1200">
-      <h2 align="center">✅ Evaluation</h2>
-
-<div align="center">
-  <img width="600" src="model_comparison.png" alt="Model Comparison"/>
-</div>
-
-<div align="center">
-  <img width="600" src="roc_curve.png" alt="ROC Curve"/>
-</div>
-
-<div align="center">
-  <img width="400" src="cm.png" alt="Confusion Matrix"/>
-</div>
-
-<div align="center">
-  <img width="600" src="cr.PNG" alt="Classification Report"/>
-</div>
-
-<p align="center">
-Model terbaik dipilih berdasarkan keseimbangan antara <strong>Recall</strong>,
-<strong>Precision</strong>, dan <strong>ROC-AUC</strong>.
-</p>
-    </td>
-  </tr>
-</table>
+## 5. Data Understanding
+Dataset terdiri dari kombinasi fitur numerik dan kategorikal.
+Pemeriksaan awal menunjukkan adanya:
+- Outlier pada fitur numerik
+- Ketidakseimbangan kelas target (Approved vs Unapproved)
+- Variasi kuat pada skor kredit dan pendapatan pemohon
 
 ---
 
-<table align="center">
-  <tr>
-    <td width="1200">
-      <h2 align="center">🚀 Deployment & Next Steps</h2>
-
-<ul>
-  <li>Menyimpan model dan scaler menggunakan <code>joblib</code></li>
-  <li>Deploy melalui <strong>Flask / FastAPI</strong></li>
-  <li>Monitoring data drift dan imbalance baru</li>
-  <li>Menambahkan explainability dengan <strong>SHAP / Permutation Importance</strong></li>
-</ul>
-    </td>
-  </tr>
-</table>
+## 6. Data Preprocessing
+Tahapan preprocessing meliputi:
+- Outlier trimming menggunakan metode **IQR**
+- Feature engineering:
+  - `credit_utilization`
+  - `income_to_loan_ratio`
+  - `credit_risk_category`
+- Encoding fitur kategorikal menggunakan **Label Encoding**
+- Penanganan ketidakseimbangan kelas dengan **SMOTE (train only)**
+- Scaling fitur numerik menggunakan **RobustScaler**
 
 ---
 
-<p align="center">
-<strong>📌 This project is designed as a production-ready Machine Learning portfolio using CRISP-DM.</strong>
-</p>
+## 7. Exploratory Data Analysis (EDA)
+EDA dilakukan untuk memahami hubungan antar fitur dan target, dengan hasil utama:
+- Credit score memiliki korelasi kuat terhadap status persetujuan pinjaman
+- Rasio pinjaman terhadap pendapatan berpengaruh signifikan terhadap risiko
+- Pemohon dengan riwayat gagal bayar sebelumnya cenderung ditolak
+
+---
+
+## 8. Modeling
+Model yang digunakan:
+- Logistic Regression (baseline)
+- Random Forest Classifier
+- Support Vector Machine (SVM)
+- K-Nearest Neighbors (KNN)
+- Gradient Boosting Classifier
+
+Seluruh model dituning menggunakan **GridSearchCV (5-fold CV)** dengan
+metrik utama **accuracy**.
+
+---
+
+## 9. Model Evaluation
+Evaluasi dilakukan pada data test menggunakan:
+- Accuracy
+- F1 Score (weighted)
+- ROC-AUC
+- Confusion Matrix
+- Classification Report
+
+Ringkasan performa model:
+
+| Model | Accuracy | F1 Score | AUC | CV Score |
+|------|---------|----------|-----|----------|
+| {{Model_1}} | {{acc}} | {{f1}} | {{auc}} | {{cv}} |
+| {{Model_2}} | {{acc}} | {{f1}} | {{auc}} | {{cv}} |
+| ... | ... | ... | ... | ... |
+
+Model terbaik dipilih berdasarkan **AUC tertinggi**
+(dengan fallback ke F1 Score jika AUC tidak tersedia).
+
+---
+
+## 10. Results & Insights
+**Model terbaik**: {{Best_Model_Name}}
+
+Insight utama:
+- Credit score dan rasio pendapatan terhadap pinjaman menjadi fitur paling dominan
+- Model mampu memisahkan peminjam berisiko tinggi dan rendah dengan baik
+- SMOTE meningkatkan kemampuan model dalam mendeteksi kelas minoritas
+
+Dampak bisnis:
+- Mengurangi risiko persetujuan pinjaman bermasalah
+- Mempercepat proses seleksi awal pemohon
+- Mendukung keputusan kredit berbasis data
+
+---
+
+## 11. Recommendations
+- Gunakan model sebagai alat *pre-screening*, bukan pengganti keputusan manusia
+- Integrasikan model ke sistem underwriting internal
+- Lakukan retraining model secara berkala dengan data terbaru
+
+---
+
+## 12. Tools & Technologies
+- **Programming Language**: Python
+- **Libraries**:
+  - Pandas, NumPy
+  - Scikit-learn
+  - Imbalanced-learn (SMOTE)
+  - Matplotlib, Seaborn
+- **Tools**:
+  - Google Colab
+  - GitHub
+
+---
+
+
+---
+
+## 13. Conclusion
+Proyek ini menunjukkan bahwa pendekatan machine learning yang dikombinasikan
+dengan preprocessing dan feature engineering yang tepat dapat membantu
+memprediksi persetujuan pinjaman secara akurat. Model yang dihasilkan
+berpotensi digunakan sebagai sistem pendukung keputusan dalam industri keuangan.
+
