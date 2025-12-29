@@ -117,28 +117,32 @@ metrik utama **accuracy**.
 ---
 
 ## 9. Model Evaluation
-Evaluasi dilakukan pada data test menggunakan:
+Evaluasi dilakukan pada data test menggunakan metrik berikut:
 - Accuracy
 - F1 Score (weighted)
 - ROC-AUC
 - Confusion Matrix
 - Classification Report
 
-Ringkasan performa model:
+Ringkasan performa model pada data test:
 
-| Model | Accuracy | F1 Score | AUC | CV Score |
-|------|---------|----------|-----|----------|
-| {{Model_1}} | {{acc}} | {{f1}} | {{auc}} | {{cv}} |
-| {{Model_2}} | {{acc}} | {{f1}} | {{auc}} | {{cv}} |
-| ... | ... | ... | ... | ... |
+| Model | Accuracy | F1 Score | AUC | Cross-validation Score |
+|------|----------|----------|-----|------------------------|
+| Gradient Boosting | 0.9284 | 0.9275 | **0.9744** | 0.9416 |
+| Random Forest | 0.9090 | 0.9105 | 0.9657 | 0.9390 |
+| SVM | 0.8699 | 0.8770 | 0.9453 | 0.9040 |
+| KNN | 0.8585 | 0.8662 | 0.9044 | 0.9160 |
+| Logistic Regression | 0.8499 | 0.8601 | 0.9429 | 0.8846 |
 
-Model terbaik dipilih berdasarkan **AUC tertinggi**
-(dengan fallback ke F1 Score jika AUC tidak tersedia).
+Model terbaik dipilih berdasarkan **ROC-AUC tertinggi**, 
+dengan **Gradient Boosting Classifier** sebagai model terbaik
+karena menghasilkan performa paling konsisten pada data test
+dan cross-validation.
 
 ---
 
 ## 10. Results & Insights
-**Model terbaik**: {{Best_Model_Name}}
+**Model terbaik**: **Gradient Boosting Classifier**
 
 Insight utama:
 - Credit score dan rasio pendapatan terhadap pinjaman menjadi fitur paling dominan
