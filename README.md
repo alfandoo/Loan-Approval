@@ -39,19 +39,37 @@ Target model:
 ---
 
 ## 4. Dataset
-- **Sumber data**: Dataset pinjaman konsumen (CSV)
-- **Jumlah data awal**: {{jumlah_data_awal}} baris
-- **Jumlah data setelah outlier trimming (IQR)**: {{jumlah_data_akhir}} baris
+- **Sumber data**:  
+  Dataset publik dari Kaggle  
+  *Loan Approval Classification Data*  
+  https://www.kaggle.com/datasets/taweilo/loan-approval-classification-data
+
+- **Jumlah data**: **45.000 baris**
 - **Target variable**: `loan_status`
   - 1 = Approved
   - 0 = Unapproved
 
 **Fitur utama**:
-- Demografi: `person_age`, `person_gender`, `person_education`
-- Finansial: `person_income`, `loan_amnt`, `loan_int_rate`, `credit_score`
-- Riwayat kredit: `cb_person_cred_hist_length`,
-  `previous_loan_defaults_on_file`
-- Properti & tujuan pinjaman
+- **Demografi**:
+  - `person_age`
+  - `person_gender`
+  - `person_education`
+  - `person_home_ownership`
+
+- **Finansial**:
+  - `person_income`
+  - `loan_amnt`
+  - `loan_int_rate`
+  - `loan_percent_income`
+  - `credit_score`
+
+- **Riwayat kredit**:
+  - `cb_person_cred_hist_length`
+  - `previous_loan_defaults_on_file`
+
+- **Tujuan pinjaman**:
+  - `loan_intent`
+
 
 ---
 
